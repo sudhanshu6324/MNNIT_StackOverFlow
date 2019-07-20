@@ -1,0 +1,122 @@
+
+    
+<% ans.forEach(function(item){%>
+<div class="our-services-wrapper mb-60 container " style="margin-top: -40px;rgba(1,2,0,0);" data-id=<%=item._id %> >
+        <div class="container br services-inner shadow-lg p-3 mb-5 rounded our-services-wrapper mb-60" style="margin-top: 10px;">
+                <div class="row ">
+					<div class="col-md-1 "><span class="upvote" id="<%= item.author_id%>" onclick="upvote(this.id)" data-id="<%=item._id%>" style="
+						
+						<% if(!user){ %>
+							background-position: 0 -25px;
+						<%	}else{
+						flag = 0 
+						item.upvoted_by.forEach(function(ele){
+							if(ele.id == user._id){ %>
+								<%	if(ele.code == '1'){ %>
+										background-position: 0 2px;
+										flag = 1
+								<% }
+							} 
+						})
+						if(flag == 0){ %>
+							background-position: 0 -25px;
+						<% }
+						}%>"></span></div>
+                </div>
+                <% if (isHome){ %>
+                <div class="row">
+                <div class="col-md-1 text-success">&nbsp&nbsp</div>
+                <div class="col-md-11 text-secondary">click on question to know the solution!</div>
+                </div>
+                <% } else{  %>
+                <div class="row">
+                        <div class="col-md-1 text-success">&nbsp&nbsp</div>
+                        <div class="col-md-11  " ><div class="content"><%- item.content %></div></div>
+                </div>  
+                <% } %>  
+                <div class="row">
+                <div class="col-md-1 "><span class="downvote" id="<%= item.author_id%>1" onclick="downvote(this.id)" data-id="<%=item._id%>" style="
+						
+					<% if(!user){ %>
+						background-position: 0 0px;
+					<%	}else{
+					flag = 0 
+					item.upvoted_by.forEach(function(ele){
+						if(ele.id == user._id){ %>
+							<%	if(ele.code == '-1'){ %>
+									background-position: 0 25px;
+									flag = 1
+							<% }
+						} 
+					})
+					if(flag == 0){ %>
+						background-position: 0 0px;
+					<% }
+					}%>"></span></div>
+                <div class="col-md-3 text-light text-left  shape">Posted By:<a href='/api/profile/<%= item.author_id %>'><%=item.author %></a></div>
+                <div class="col-md-3 text-light text-left  shape">votes:<%= item.votes %></div>                
+                <div class="col-md-3 text-light text-left  shape"  >Posted on:<span class="timestamp"><%=item.time %></span></div>    
+                </div>
+            </div>
+		</div>
+		
+		
+
+<% }); %>
+
+<div class="container">
+
+</div>
+<!-- <script src="/static/js/upvote"></script> -->
+<script>
+function upvote(id) {
+        console.log(id);       
+         ans_id = $("#"+id).attr('data-id')
+         author_id = id
+		 ques_id = $('.our-services-wrapper').attr('data-id')
+		 
+        $.post("/api/upvote",{ans_id:ans_id,author_id:author_id,ques_id:ques_id},function(result){
+                if(result.code == 0){
+                    alert("Login to upvote")
+            }else if(result.code == -1){
+                    alert(result.error)
+            }else if(result.code == -2){
+                    alert("Your Scores Aren't enough \n you need atleast 100 score to upvote")
+            }else{
+                location.reload();
+            }              
+        })	      
+}
+function downvote(id) {
+       
+        
+        temp = id
+        id = id.slice(0,id.length-1)
+        console.log(id)
+        ans_id = $("#"+id).attr('data-id')
+        author_id = id
+        ques_id = $('.our-services-wrapper').attr('data-id')
+         
+        console.log(id)
+        $.post("/api/downvote",{ans_id:ans_id,author_id:author_id,ques_id:ques_id},function(result){
+            if(result.code == 0){
+                    alert("Login to downvote")
+            }else if(result.code == -1){
+                    alert(result.error)
+            }else if(result.code == -2){
+                    alert("Your Scores Aren't enough \n you need atleast 100 score to downvote")
+            }else{   
+                location.reload()
+            }
+        })	      
+}   
+	
+</script>
+<!-- <script src="/static/js/upvote"></script> -->
+        
+        <!-- convert into standard time -->
+        
+        
+            
+
+

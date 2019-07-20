@@ -1,0 +1,45 @@
+<!-- Quetion Pallete begin -->
+
+<% ques.forEach(function(item){%>
+<div class="our-services-wrapper mb-60 container " style="margin-top: -40px;rgba(1,2,0,0)" data-id=<%= item._id %> >
+        <div class="container br services-inner shadow-lg p-3 mb-5 rounded our-services-wrapper mb-60" style="margin-top: 10px;">
+             <% if (isHome){ %>  
+             <div class="row ">
+             <div class="col-md-1 "><img src="/static/images/views.png" class="rounded img-fluid "  style="width:70px; font-weight:bold;position:absolute;bottom:5px;"></div>
+             <div class="col-md-11"><a style="color:black" href='/viewans/<%= item._id %>'><h3><%= item.title %></h3></a></div>
+             </div>
+             <% } else{  %>
+                <div class="row ">
+                <div class="col-md-1 "><img src="/static/images/views.png" class="rounded img-fluid "  style="width:70px; font-weight:bold;position:absolute;bottom:5px;"></div>
+                <div class="col-md-11"><a style="color:black" ><h3><%= item.title %></h3></a></div>
+                </div>   
+                <% } %>    
+             <% if (isHome){ %>
+             <div class="row">
+             <div class="col-md-1 text-success"><%= item.views%></div>
+             <div class="col-md-11 text-secondary">click on question to know the solution!</div>
+             </div>
+             <% } else{  %>
+                <div class="row">
+                        <div class="col-md-1 text-success"><%= item.views%></div>
+                        <div class="col-md-11  " ><div class="content"><%- item.content %></div></div>
+                </div>  
+                <% } %>  
+             <div class="row">
+             <div class="col-md-1 rounded"><img src="/static/images/downvote.png" style="width:25px;"></div>
+             <div class="col-md-3 text-light text-left  shape">Posted By:<a href='/api/profile/<%= item.author_id %>'><%=item.author %></a></div>
+             <div class="col-md-3 text-light text-left  shape">No of Answers:<%=item.noOfAns %></div>
+             
+             <div class="col-md-3 text-light text-left  shape"  >Posted on:<span class="timestamp"><%=item.time %></span></div>
+             
+             </div>
+             
+         </div>
+</div>  
+<!-- convert into standard time -->
+<script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment-with-locales.min.js"></script>
+<script src='/static/js/changetime.js'></script>
+<% }); %>
+
+
+<!-- Quetion Pallete end -->

@@ -1,0 +1,45 @@
+
+<!--navigation<nav class="navbar navbar-expand-lg navbar-light bg-light"> bar-->
+        <nav class="navbar navbar-expand-sm  navbar-dark sticky-top" style=" background-color: rgba(10,10,30,0.9);">
+                <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="navbar-brand" href="/">
+                            <img src="/static/images/logo1.png" alt="Logo" style="width:120px;">
+                            </a>
+                        </li>
+            
+                    </ul>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="navbarNavDropdown" class="navbar-collapse collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item mx-auto order-0">
+                                <button class="btn btn-outline-primary" type="submit"><a href="/api/ask">Ask a Ques</a></button>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        
+                                <% if (isUser){ %>
+                                    <li class="nav-item">
+                                    <a href='/api/profile/<%= user._id %>'><%= user.name %></a>
+                                        &nbsp
+                                        </li>
+                                    <li class="nav-item mx-auto order-0">
+                                    <button class="btn btn-outline-primary" type="submit"><a href="/api/logout">LOGOUT</a></button>
+                                    </li>
+                                    &nbsp
+                                <% } else (isUser){ %>      
+                                 <li class="nav-item mx-auto order-0">
+                                <button class="btn btn-outline-primary" type="submit"><a href="/auth/signup">SIGNUP</a></button>
+                                </li>   <li class="nav-item mx-auto order-0">
+                                    <button class="btn btn-outline-primary" type="submit"><a style="hover:white;" href="/auth/login">LOGIN</a></button>
+                                    </li>    
+                                    &nbsp
+                                
+                                    &nbsp
+                                <% }  %>
+                            </li>
+                    </ul>
+                </div>
+            </nav>

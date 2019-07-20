@@ -1,0 +1,109 @@
+<%- include partials/meta.ejs %>
+<link rel="stylesheet" type="text/css" href="/static/css/profile.css" />
+<body class="" background="/static/images/back.jpg"  style="background-attachment: fixed;"></body>
+<%- include partials/nav.ejs %>
+<div class="our-services-wrapper mb-60 container " >
+<div class="container br services-inner shadow-lg p-3 mb-5 rounded our-services-wrapper mb-60" >
+<div class="container emp-profile ">
+      
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img src="/static/images/profile.png" alt=""/>
+                        <!-- <div class="file btn btn-lg btn-primary">
+                         
+                            <input type="file" name="file"/>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                                <h5>
+                                    Name of person
+                                </h5>
+                                <ul>
+                                    <!-- <li class="proile-rating">No of answered question : <span>76</span></li>
+                                    <li class="proile-rating">No of answered question : <span>76</span></li> -->
+                                </ul>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <!--edit profile option optional-->
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    
+                </div>
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                   
+                                    <div class="row">
+                                        <div class="col-md-6" id="_id" data-id=<%=user._id %>>
+                                            <label>Name</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%= user.name%></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Email</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%= user.email%></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Score</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><%= user.score%></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                            <div class="col-md-6">
+                                                <button class="btn btn-success" id="answered">Answered</button>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button class="btn btn-success" id="questioned">Questioned</button>
+                                            </div>
+                                    </div>                                   
+                        </div>                
+                    </div>
+                </div>
+            </div>            
+    </div>
+</div>   
+</div>
+<div id="ques"></div>
+    <%- include partials/footer.ejs %>
+</body>
+<script>
+$("#questioned").on('click',function(){
+    _id = $("#_id").attr('data-id')
+    $.post("/api/getquestioned",{_id:_id},function(result){
+			$("#ques").html(result)
+		})	
+   
+})
+$("#answered").on('click',function(){
+    _id = $("#_id").attr('data-id')
+    $.post("/api/getanswered",{_id:_id},function(result){
+			$("#ques").html(result)
+		})	
+   
+})
+</script>
+
+
+
+
+

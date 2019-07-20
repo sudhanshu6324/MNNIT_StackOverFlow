@@ -1,0 +1,67 @@
+<style>
+    .form-gap {
+        padding-top: 70px;
+    }
+    </style>
+<%- include partials/meta.ejs %>
+<body class="" background="/static/images/back.jpg"  style="background-attachment: fixed;"></body>
+<%- include partials/nav.ejs %>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                <div class="text-center">
+                    <h3><i class="fa fa-lock fa-4x"></i></h3>
+                    <h2 class="text-center">Reset Password?</h2>
+                    <p>You can reset your password here.</p>
+                    <div class="panel-body">
+    
+                    <div id="register-form" role="form" autocomplete="off" class="form" >
+    
+                            <div class="form-group">
+                            <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                            <input id="password" name="password" placeholder="password" class="form-control"  type="password">
+                            <input id="con_password" name="con_password" placeholder="confirm password" class="form-control"  type="password">
+                            </div>
+                            <div id="message"></div>
+                            </div>
+                        <div class="form-group">
+                        <input name="reset" id="reset" class="btn btn-lg btn-primary btn-block" value="Reset Password" type="submit">
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
+    <%- include partials/footer.ejs %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script>
+      $("#reset").on('click',function(){
+          password = $("#password").val(); 
+          con_password = $("#con_password").val();
+            if(password != con_password){
+                $("#message").html("Passwords do not match")
+            }else{
+                $.post("/api/forgot/reset",{password:password},function(result){
+                    if(result.code == 1){
+                        alert("Password Successfully Changed")
+                    }else{
+                        alert(result.error)
+                    }
+                })
+            }  
+          	
+          
+      })
+    </script>

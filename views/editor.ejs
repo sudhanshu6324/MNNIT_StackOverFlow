@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	  <title>Bootstrap Example</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	  
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	  <script type="text/javascript" src="C:/xampp/htdocs/socialConnect2/ckeditor/ckeditor.js"></script>
+	  <link  rel="stylesheet" href="C:/xampp/htdocs/socialConnect2/mystyle.css">
+</head>
+<body style="height: 20000px">
+	
+
+<div class="row  main-margin" style="border:1px solid;black ; padding :20px;width:1420px">
+		<div class=" col-md-3" style="border:1px solid;black" id="side-nav">				
+						
+		</div>
+		<div class="col-md-9" style="border:1px solid black;padding :20px; ">
+				<div class="container " id="publish-published" style="border:1px solid red;max-height: 500px;overflow-y: scroll" >
+				</div>
+		        <div class="hide container" id="publish-toBePublished" >
+		        	<h2 class="text-danger" ><strong><mark>New </mark>Article</strong></h2>
+					<br>
+		        	
+		        <form  action ='/new-ques' method="post">
+				 		<textarea class="container form-control publish-editor " rows="2" name="headline">
+				 		</textarea>
+				 		<br>
+				 		<br>
+				 		<textarea class="ckeditor" name='content'></textarea>
+				 		<br>
+			 		<input type ="submit" class="btn btn-info" value ="submit" />
+			 	</form>
+					
+				</div>
+				
+		</div>
+		
+</div>
+	
+
+	<div class="container publish-btn"   class="rounded-circle">
+		<div class="btn btn-info">Ask the ques</div>
+	</div>
+
+</body>
+</html>

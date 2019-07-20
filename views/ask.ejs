@@ -1,0 +1,48 @@
+<%- include partials/meta.ejs%>
+<!--navigation bar-->
+<%- include partials/nav.ejs%>
+
+<body class="" background="/static/images/back.jpg"  style="background-attachment: fixed;"></body>
+	<div class="container">
+    	<div class="row">
+			<div class="col-md-4"><h3 class="font-weight-bold">ASK A QUESTION?</h3></div>
+			<div class="col-md-5"></div>
+			<div class="col-md-3"></div>
+		</div>
+  		<div class="row">
+      		<div class="col-md-2"></div>
+      		<div class="col-md-8"><h3 name="title" id='title'  style="width:100%;text-align: center">Title</h3></div>
+      		<div class="col-md-2"></div>
+    	</div>
+  		<div class="row">
+      		<div class="col-md-2"></div>
+      		<div class="col-md-8"><textarea name="title" id='title'  style="height:100px;width:100%"></textarea></div>
+      		<div class="col-md-2"></div>
+    	</div>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8"><textarea name="editor" class="ckeditor" id='content'  style="height:300px;"></textarea></div>
+			<div class="col-md-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-6"></div>
+			<div class="col-md-1"><button id='postQues' class="btn btn-success" style="margin-top: 10px '">Post Ur Ques</></div>
+			<div class="col-md-3"></div>
+		</div>
+		<div id="message"></div>
+	</div>	
+<br>
+<br>
+<!--footer starting-->
+<%- include partials/footer.ejs %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" src="/static/js/ckeditor/ckeditor.js"></script>
+<script src="/static/js/postQues.js"> </script>
+  </body>
+</html>

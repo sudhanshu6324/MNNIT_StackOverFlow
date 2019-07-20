@@ -1,0 +1,62 @@
+<%- include partials/meta.ejs %>
+
+<body background="/static/images/back.jpg" class="text-center" style="background-attachment: fixed;">
+<!--navigation bar-->
+<%- include partials/nav.ejs %>
+
+	<div class="row">
+        <div class="col-md-4"></div>
+		<div class="col-md-4">
+			<div class="login-local" method="POST" action="/auth/signup" style="margin-top:20px;">
+				<img class="mb-4" src="/static/images/signup.png" alt="ICON" width="100" height="100">
+				<h1 class="h3 mb-3 font-weight-normal">REGISTER</h1>
+				<label for="inputUsername" class="sr-only">Username</label>
+					<input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+				<label for="inputEmail" class="sr-only">Email</label>
+					<input type="text" id="email" name="email" class="form-control" placeholder="Email" required>
+				<label for="inputPassword" class="sr-only">Password</label>
+					<input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+				
+				<button class="btn btn-lg btn-primary btn-block" id="signup" type="submit">Sign Up</button>
+				<form class="" method="GET" action="/auth/google" style="margin-top:20px;">
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in with facebook</button>
+				</form>	
+				<form class="" method="GET" action="/auth/google" style="margin-top:20px;" >
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in with google</button>
+				</form> 
+			</div>
+		</div>	
+        <div class="col-md-4"></div>
+		</div>
+		<br>
+		<br>
+		<br>
+				
+<%- include partials/footer.ejs %>
+</body>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+  $("#signup").on('click',function(){
+    console.log("Hello")
+      username = $("#username").val();
+      email = $("#email").val();
+      password = $("#password").val();
+      
+      $.post("/auth/signup",{username:username,email:email,password:password},function(result){
+       if(result.code == 0){
+         alert(result.err)
+       }else if(result.code == -1){
+         alert("Email Already Exists")
+       }else if(result.code == -2){
+        alert(result.err)
+       }else{
+        window.location.replace("http://localhost:3000/")
+       }
+       
+      })	
+      
+})
+</script>
+</html>

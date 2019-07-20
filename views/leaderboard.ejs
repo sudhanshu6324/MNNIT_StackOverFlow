@@ -1,0 +1,37 @@
+
+<%- include partials/meta.ejs %>
+<body class="" background="/static/images/back.jpg"  style="background-attachment: fixed;"></body>
+<%- include partials/nav.ejs %>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <table class="table table-hover">
+            <thead>
+                <tr>
+                <th>Rank</th>
+                <th>User Handle</th>
+                <th>Score</th>
+                </tr>
+            </thead>
+        <%  test = 1; list.forEach(function(item){ %>
+            <tbody>
+                <tr>
+                <td><%= test %></td>
+                <td><a style="color:black" href='/api/profile/<%= item._id %>'><%= item.name %></a></td>
+                <td><%= item.score %></td>
+                </tr>
+            </tbody>
+        <% test++ }) %>    
+    </table>
+</div>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br><br>
+<br><br><br>
+<%- include partials/footer.ejs %>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+

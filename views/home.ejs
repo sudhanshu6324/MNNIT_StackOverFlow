@@ -1,0 +1,56 @@
+
+ <%- include partials/meta.ejs %>
+<body background="/static/images/back.jpg"  style="background-attachment: fixed;">
+<%- include partials/nav.ejs %>
+ 
+<!--seaerch bar-->
+<div class="container">
+    <br/>
+	<div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <form class="card card-sm" action="/search" method="GET">
+                                <div class="card-body row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-search h3 text-body"></i>
+                                    </div>         
+                                    <div class="col">
+                                        <input class="form-control form-control-lg form-control-borderless " name="sad" type="search" placeholder="Search topics or keywords">
+                                    </div>         
+                                    <div class="col-auto">
+                                        <button class="btn btn-lg btn-primary" type="submit">Search</button>
+                                    </div>         
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+</div>
+
+<!--seaerch bar end-->
+
+<!-- Questions start -->
+<div class="container text-light" style="margin-top: 15px; border-radius: 7px; background-color: rgba(10,10,30,.9)">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-3"><h3 class="font-weight-bold">ALL QUESTIONS</h3></div>
+        <div class="col-md-5"></div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+
+<!-- Questions end -->
+
+<%- include partials/quespalette.ejs %>
+<%- include partials/footer.ejs %>      
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+

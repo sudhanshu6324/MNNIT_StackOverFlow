@@ -20,6 +20,9 @@
 				right: 150px;
 				width: 120px;
 				height: 120px;
+	                        min-width: 120px;
+	                         blackground:red;
+	                         
 }
 
 .hide{
@@ -56,6 +59,7 @@
 }
 #login {
 			text-align: center;
+	                text-justify: center;
 
 }
 .header{
